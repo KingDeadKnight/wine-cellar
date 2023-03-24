@@ -28,10 +28,9 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            ${{ github.workspace }}/web/.yarn
-            ${{ github.workspace }}/web/.pnp.cjs
-            ${{ github.workspace }}/web/.next/cache
-          key: ${{ runner.os }}-deps-${{ hashFiles('**/web/yarn.lock') }}
+#            ${{ github.workspace }}/.yarn
+            ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-deps-${{ hashFiles('**/yarn.lock') }}
       - name: Install Dependencies
         run: |
           corepack enable
