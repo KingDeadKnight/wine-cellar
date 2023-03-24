@@ -1,0 +1,41 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency: 
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        name: Checkout Sources
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        name: Setup Node
+        with:
+          node-version: '18'
+      - name: Cache Dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ github.workspace }}/web/.yarn
+            ${{ github.workspace }}/web/.pnp.cjs
+            ${{ github.workspace }}/web/.next/cache
+          key: ${{ runner.os }}-deps-${{ hashFiles('**/web/yarn.lock') }}
+      - name: Install Dependencies
+        run: |
+          corepack enable
+          corepack prepare yarn@stable --activate
+          yarn install --immutable
+      - name: Build the application
+        run: yarn build
