@@ -28,7 +28,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-#            ${{ github.workspace }}/.yarn
+            ${{ github.workspace }}/.yarn
             ${{ github.workspace }}/.next/cache
           key: ${{ runner.os }}-deps-${{ hashFiles('**/yarn.lock') }}
       - name: Install Dependencies
