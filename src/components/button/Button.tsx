@@ -22,7 +22,7 @@ export function Button ({ label, onClick, secondary, submit }: Props) {
             {!secondary && (
                 <button
                     type={submit ? "submit" : "button"}
-                    className={`w-full bg-primary text-white px-2 py-1 hover:bg-secondary transition duration-100 border border-secondary`}
+                    className={`w-full bg-primary text-red-700 px-2 py-1 hover:bg-secondary transition duration-100 border border-secondary`}
                     onClick={onClick}
                 >
                     {label}
