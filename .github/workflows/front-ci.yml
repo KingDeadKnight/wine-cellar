@@ -1,4 +1,4 @@
-name: CI
+name: Front CI
 on:
   push:
     branches:
@@ -6,7 +6,6 @@ on:
   pull_request:
     branches:
       - main
-  workflow_dispatch:
 
 concurrency: 
     group: ${{ github.workflow }}-${{ github.ref }}
@@ -17,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        name: Checkout Sources
+        name: Checkout
         with:
           fetch-depth: 0
       - uses: actions/setup-node@v3
@@ -28,13 +27,15 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            ${{ github.workspace }}/.yarn
-            ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-deps-${{ hashFiles('**/yarn.lock') }}
-      - name: Install Dependencies
+            ${{ github.workspace }}/front/.yarn
+            ${{ github.workspace }}/front/.next/cache
+          key: ${{ runner.os }}-deps-${{ hashFiles('**/front/yarn.lock') }}
+      - name: Install
+        working-directory: ./front
         run: |
           corepack enable
           corepack prepare yarn@stable --activate
           yarn install --immutable
-      - name: Build the application
+      - name: Build
+        working-directory: ./front
         run: yarn build
