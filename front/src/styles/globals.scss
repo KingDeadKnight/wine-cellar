@@ -1,5 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@charset "utf-8";
+@use 'sass:color';
+@use 'sass:math';
+@use 'sass:map';
 
-@import 'atomes/ellipse';
+@use 'base/mixin--base' as base;
+@use 'base/mixin--text' as text;
+@use 'base/charte' as charte;
+@use 'base/mixin--icon' as icon;
+
+@import 'atoms/bottle-ellipse';
+@import 'atoms/icons';

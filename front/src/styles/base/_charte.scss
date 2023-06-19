@@ -1,0 +1,9 @@
+﻿@use './mixin--text' as text;
+
+$whiteColor: #ffffff;
+
+@include text.font-face('wine-cellar', '../fonts/wine-cellar', text.$fontWeightNormal, normal, block);
+$fontIcon: 'wine-cellar', sans-serif;
+$icons: (
+        'icon-plus': '\e800',
+);

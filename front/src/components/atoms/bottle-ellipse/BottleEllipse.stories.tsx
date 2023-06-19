@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import {BottleEllipse} from "@/components/bottleEllipse/BottleEllipse";
+import {BottleEllipse} from "@/components/atoms";
 
 export default {
     /* 👇 The title prop is optional.

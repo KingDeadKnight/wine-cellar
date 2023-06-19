@@ -1,0 +1,131 @@
+﻿@use './mixin--text' as text;
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: '';
+    display: table !important;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+/**
+* @mixin transition
+*
+* Example
+*
+*   a {
+*     @include transition;
+*   }
+*
+*   button {
+*     @include transition(transform);
+*   }
+*
+*   => adds to <a> a transition = all .3s ease-out, 0s
+*   => adds to <button> a transition = transform .3s ease-out, 0s
+*
+*   Complex transition should not be manages by this mixin.
+*   Use it on default transition.
+*/
+@mixin transition($elements: all, $duration: .2s, $timingFunction: ease-in-out, $delay: 0s) {
+  transition: $elements $duration $timingFunction $delay;
+}
+
+/**
+* mainly used by other mixins
+*/
+@mixin set-attribute($attribute, $value) {
+  @if $attribute == font-size {
+    @include text.font-size($value);
+  } @else if $attribute == line-height {
+    @include text.line-height($value);
+  } @else {
+    #{$attribute}: $value;
+  }
+}
+
+/**
+* mainly used by other mixins
+*/
+@mixin set-attribute-on($attribute, $value, $element: '&') {
+  $fontAttributes: color font-size font-style font-weight line-height text-decoration text-shadow;
+  $elementsNotAvailableForChildren: ':before' ':after' '::-moz-selection' '::selection';
+  $applyToChildren: false;
+
+  @if index($fontAttributes, $attribute) {
+    $applyToChildren: true;
+
+    @if $element != '&' {
+      @each $elementNotAvailableForChildren in $elementsNotAvailableForChildren {
+        @if $applyToChildren and str-index($element, $elementNotAvailableForChildren) != null {
+          $applyToChildren: false;
+        }
+      }
+    }
+  }
+
+  /* Apply CSS rule */
+  #{$element} {
+    @if $applyToChildren {
+      &,
+      * {
+        @include set-attribute($attribute, $value);
+      }
+    } @else {
+      @include set-attribute($attribute, $value);
+    }
+  }
+}
+
+/**
+* @mixin invisible
+*
+* Example
+*
+*   a {
+*     @include invisible;
+*   }
+*
+*   => <a> will not shown.
+*
+*   Used for elements which must have a text equivalent.
+*   For example, the icon "facebook" is recognized by "normal" people,
+*   But blind people do not have any idea of what means the icon.
+*   So be sure that a text "facebook" is present but not visible.
+*/
+@mixin invisible() {
+  @include text.font-size(0, true);
+  @include text.line-height(0, true);
+  border: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute;
+  width: 0 !important;
+}
+
+/**
+* Replace `$search` with `$replace` in `$string`
+*
+* @param {String} $string - Initial string
+* @param {String} $search - Substring to replace
+* @param {String} $replace ('') - New value
+*
+* @return {String} - Updated string
+*/
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+            str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}

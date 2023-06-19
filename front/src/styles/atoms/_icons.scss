@@ -1,0 +1,8 @@
+﻿.icon {
+
+  @include icon.design--icon-default;
+
+  &-plus {
+    @include icon.design--icon(icon-plus, '&:before');
+  }
+}

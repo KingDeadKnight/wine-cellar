@@ -2,7 +2,7 @@ import {ReactNode} from "react";
 
 interface Props {
     bgColor: string;
-    children: ReactNode;
+    children?: ReactNode;
 }
 
 export function BottleEllipse ({ bgColor, children }: Props) {

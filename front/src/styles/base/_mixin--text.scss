@@ -1,0 +1,61 @@
+﻿$fontWeightLight: 300;
+$fontWeightNormal: 400;
+$fontWeightMedium: 500;
+$fontWeightSemibold: 600;
+$fontWeightBold: 700;
+
+@mixin font-face($fontName, $fontPath, $fontWeight: $fontWeightNormal, $fontStyle: normal, $fontDisplay: swap) {
+  @font-face {
+    font-family: $fontName;
+    src: url($fontPath + '.eot');
+    src: url($fontPath + '.eot?#iefix') format('embedded-opentype'), url($fontPath + '.woff') format('woff'),
+    url($fontPath + '.ttf') format('truetype'), url($fontPath + '.svg#' + $fontName) format('svg');
+    font-weight: $fontWeight;
+    font-style: $fontStyle;
+    font-display: $fontDisplay;
+  }
+}
+
+@mixin font-size($sizeValue: 1.4, $important: false) {
+  $remValue: $sizeValue;
+  $pxValue: ($sizeValue * 10);
+
+  @if $sizeValue == 0 and $important == true {
+    font-size: 0 !important;
+  } @else if $sizeValue == 0 {
+    font-size: 0;
+  } @else if $important == true {
+    font-size: $pxValue + px !important;
+    font-size: $remValue + rem !important;
+  } @else {
+    font-size: $pxValue + px;
+    font-size: $remValue + rem;
+  }
+}
+
+@mixin line-height($sizeValue: 2, $important: false) {
+  $remValue: $sizeValue;
+  $pxValue: ($sizeValue * 10);
+
+  @if $sizeValue == 0 and $important == true {
+    line-height: 0 !important;
+  } @else if $sizeValue == 0 {
+    line-height: 0;
+  } @else if $important == true {
+    line-height: $pxValue + px !important;
+    line-height: $remValue + rem !important;
+  } @else {
+    line-height: $pxValue + px;
+    line-height: $remValue + rem;
+  }
+}
+
+@mixin text-selection {
+  ::-moz-selection {
+    @content;
+  }
+
+  ::selection {
+    @content;
+  }
+}
