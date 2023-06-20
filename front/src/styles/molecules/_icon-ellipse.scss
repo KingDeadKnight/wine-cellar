@@ -1,0 +1,12 @@
+﻿.ellipse {
+  i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  &-icon {
+    border: black solid 0.1rem;
+  }
+}

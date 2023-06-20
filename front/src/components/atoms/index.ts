@@ -1,2 +1,2 @@
-export * from './bottle-ellipse';
+export * from './ellipse';
 export * from './icon';

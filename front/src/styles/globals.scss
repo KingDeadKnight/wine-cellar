@@ -8,5 +8,7 @@
 @use 'base/charte' as charte;
 @use 'base/mixin--icon' as icon;
 
-@import 'atoms/bottle-ellipse';
+@import 'atoms/ellipse';
 @import 'atoms/icons';
+
+@import 'molecules/icon-ellipse';
