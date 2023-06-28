@@ -1,6 +1,23 @@
 ﻿@use './mixin--text' as text;
 
+@import url("https://fonts.googleapis.com/css?family=Outfit");
+$fontFamily: 'Outfit';
+
 $whiteColor: #ffffff;
+
+$primary-color-900: #21194D;
+$primary-color-800: #3C28A4;
+$primary-color-700: #553ADE;
+$primary-color-600: #6347F4;
+$primary-color-500: #7357FF;
+$primary-color-400: scale-color($primary-color-500, $lightness: 17%);
+$primary-color-300: #A797FF;
+$primary-color-200: #BCAFFF;
+$primary-color-100: #C6BBFF;
+$primary-color-75: #E2DCFF;
+$primary-color-50: #F1EEFF;
+$primary-color-25: #F9F8FF;
+
 
 @include text.font-face('wine-cellar', '../fonts/wine-cellar', text.$fontWeightNormal, normal, block);
 $fontIcon: 'wine-cellar', sans-serif;

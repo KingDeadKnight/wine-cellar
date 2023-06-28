@@ -1,0 +1,19 @@
+﻿.drawer {
+
+  > .title {
+    font-family: charte.$fontFamily;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  > .drawer-container {
+    margin-top: 16px;
+    display: flex;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    height: 75px;
+    background-color: charte.$whiteColor;
+  }
+}
