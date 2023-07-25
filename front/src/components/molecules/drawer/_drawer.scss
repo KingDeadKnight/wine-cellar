@@ -1,4 +1,6 @@
-﻿.drawer {
+﻿@use '../../../styles/base/charte' as charte;
+
+.drawer {
 
   > .title {
     font-family: charte.$fontFamily;

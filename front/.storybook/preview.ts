@@ -1,4 +1,4 @@
-import '@/styles/globals.scss';
+import '@/styles/base/_reset.scss';
 
 import type { Preview } from '@storybook/react';
 

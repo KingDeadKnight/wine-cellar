@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import './_icons.scss';
 
 interface Props {
     iconName: string;
@@ -6,6 +7,6 @@ interface Props {
 
 export function Icon({iconName} : Props) {
     return (
-        <i className={'icon icon-' + iconName} aria-hidden={'true'}></i>
+        <i className={`icon icon-${iconName}`} aria-hidden={'true'}></i>
     );
 }

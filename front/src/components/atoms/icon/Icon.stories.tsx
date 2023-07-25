@@ -1,14 +1,11 @@
-import {Meta, StoryFn} from '@storybook/react';
+import {Meta, StoryObj} from '@storybook/react';
 import {Icon} from "@/components/atoms/icon/Icon";
 
-export default {
+const meta = {
     title: 'Atoms/Icon',
     component: Icon,
   } as Meta<typeof Icon>;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-  // Create a master template for mapping args to render the Button component
-const Template: StoryFn<typeof Icon> = (args) => <Icon {...args} />;
-
-// Reuse that template for creating different stories
-export const Plus = Template.bind({});
-Plus.args = { iconName: "plus" };
+export const Default : Story = {args: {iconName: "plus"}};

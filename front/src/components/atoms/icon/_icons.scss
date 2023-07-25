@@ -1,4 +1,5 @@
-﻿.icon {
+﻿@use '../../../styles/base/mixin--icon' as icon;
+.icon {
 
   @include icon.design--icon-default;
 
