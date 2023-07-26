@@ -1,10 +1,14 @@
 import {Ellipse} from '@/components/atoms';
-import './_drawer.scss';
+import './_shelf.scss';
+import {ShelfCapacity} from "@/components/atoms/shelf-capacity/ShelfCapacity";
 
-export function Drawer(){
+export function Shelf(){
     return (
         <div className='drawer'>
-            <span className='title'>Étagère 1</span>
+            <div className='head'>
+                <span className='title'>Étagère 1</span>
+                <ShelfCapacity max={6}/>
+            </div>
             <div className='drawer-container'>
                 <Ellipse bgColor='#9B1A30'/>
                 <Ellipse bgColor='#FAE7C0'/>
