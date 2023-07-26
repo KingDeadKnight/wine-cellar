@@ -1,5 +1,6 @@
 import React from 'react';
 import './_shelfcapacity.scss';
+import {Tag} from "@/components/atoms/tag/Tag";
 
 interface Props {
     current?: number;
@@ -8,8 +9,8 @@ interface Props {
 
 export function ShelfCapacity({max, current = 0} : Props) {
     return (
-        <div className='drawer-capacity'>
+        <Tag>
             <span><span className='current'>{current}</span> / {max}</span>
-        </div>
+        </Tag>
     );
 }

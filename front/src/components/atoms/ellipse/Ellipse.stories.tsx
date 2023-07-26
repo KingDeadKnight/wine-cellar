@@ -11,7 +11,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default : Story = {};
 
-export const Icon : Story = {args: {iconName: 'plus'}};
+export const IconEllipse : Story = {args: {iconName: 'plus'}};
 
 export const Red : Story = {args: { bgColor: "#9B1A30"}};
 

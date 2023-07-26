@@ -18,9 +18,18 @@ $primary-color-75: #E2DCFF;
 $primary-color-50: #F1EEFF;
 $primary-color-25: #F9F8FF;
 
+$gray-100: #E2E2E4;
+$gray-200: #D9D8DC;
+$gray-500: #8D8A95;
+
 
 @include text.font-face('wine-cellar', '../fonts/wine-cellar', text.$fontWeightNormal, normal, block);
 $fontIcon: 'wine-cellar', sans-serif;
 $icons: (
-        'icon-plus': '\e800',
+        'icon-pluscircle': '\e800',
+        'icon-plus': '\e801',
+        'icon-trash': '\e802',
+        'icon-caretup': '\e803',
+        'icon-dotssix': '\e804',
+        'icon-listbullets': '\e805',
 );

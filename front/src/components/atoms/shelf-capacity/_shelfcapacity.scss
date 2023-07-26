@@ -1,13 +1,6 @@
 ﻿@use '../../../styles/base/charte' as charte;
 
-.drawer-capacity {
-  font-family: charte.$fontFamily;
-  font-size: 12px;
-  display: inline;
-  padding: 4px 12px;
-  border-radius: 8px;
-  background: charte.$primary-color-75;
-
+.tag {
   span {
     &.current {
       font-weight: 500;
