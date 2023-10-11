@@ -1,4 +1,4 @@
-import classnames from 'classnames'
+import classnames from 'clsx'
 import {Icon} from '../icon';
 import './_ellipse.scss';
 

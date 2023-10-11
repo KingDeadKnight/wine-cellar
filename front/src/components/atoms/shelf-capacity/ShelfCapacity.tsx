@@ -1,4 +1,3 @@
-import React from 'react';
 import './_shelfcapacity.scss';
 import {Tag} from "@/components/atoms/tag/Tag";
 
