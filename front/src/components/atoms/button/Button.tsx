@@ -1,6 +1,5 @@
-import React from 'react';
 import './_button.scss';
-import classnames from "classnames";
+import classnames from "clsx";
 import {Icon} from "@/components/atoms";
 
 interface Props {

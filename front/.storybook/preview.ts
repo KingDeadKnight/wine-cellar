@@ -1,6 +1,4 @@
-import '@/styles/base/_reset.scss';
-
-import type { Preview } from '@storybook/react';
+import type { Preview } from "@storybook/react";
 
 const customViewports = {
   Mobile: {
@@ -40,7 +38,7 @@ const preview: Preview = {
       values: [
         {
           name: 'light',
-          value: '#ffc1d4',
+          value: '#F9F8FF',
         },
       ],
     },

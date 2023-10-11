@@ -23,7 +23,7 @@ $gray-200: #D9D8DC;
 $gray-500: #8D8A95;
 
 
-@include text.font-face('wine-cellar', '../fonts/wine-cellar', text.$fontWeightNormal, normal, block);
+@include text.font-face('wine-cellar', '@/styles/fonts/wine-cellar', text.$fontWeightNormal, normal, block);
 $fontIcon: 'wine-cellar', sans-serif;
 $icons: (
         'icon-pluscircle': '\e800',
