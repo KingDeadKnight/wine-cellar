@@ -1,0 +1,69 @@
+﻿@use './mixin--base' as base;
+@use './mixin--text' as text;
+@use './charte' as charte;
+
+@mixin design--icon-default() {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-flex;
+  font-family: charte.$fontIcon !important;
+  @include text.font-size(1.6);
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: text.$fontWeightNormal !important;
+  @include text.line-height(1.5);
+  speak: none;
+  text-transform: none !important;
+  vertical-align: middle;
+
+  @media reader, speech, aural {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+@mixin design--icon($iconName: null, $element: '&') {
+  @if $iconName == null {
+    @error "The icon name \"#{$iconName}\" is not provided.";
+  } @else if not map-has-key(charte.$icons, $iconName) {
+    @error "The icon name \"#{$iconName}\" is not defined in variable $icons.";
+  } @else {
+    #{$element} {
+      @include design--icon-default;
+
+      $iconValue: map-get(charte.$icons, $iconName);
+
+      @if str-index($iconValue, '.svg') != null {
+        background-image: url('#{$iconValue}');
+        height: 100%;
+        width: 100%;
+      } @else {
+        content: $iconValue;
+      }
+    }
+  }
+}
+
+@mixin design--icon--init() {
+  [class^='icon--']:before,
+  [class*=' icon--']:before {
+    @include design--icon-default;
+    content: '';
+  }
+
+  [class^='icon-svg--'],
+  [class*=' icon-svg--'] {
+    @include design--icon-default;
+
+    svg {
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+
+  @each $iconKey, $iconValue in charte.$icons {
+    .icon--#{$iconKey} {
+      @include design--icon($iconKey, $element: '&:before');
+    }
+  }
+}

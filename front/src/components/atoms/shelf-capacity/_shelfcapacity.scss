@@ -1,0 +1,9 @@
+﻿@use '../../../styles/base/charte' as charte;
+
+.tag {
+  span {
+    &.current {
+      font-weight: 500;
+    }
+  }
+}

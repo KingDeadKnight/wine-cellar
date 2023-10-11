@@ -1,0 +1,25 @@
+﻿@use '../../../styles/base/mixin--icon' as icon;
+.icon {
+
+  @include icon.design--icon-default;
+
+  &-plus {
+    @include icon.design--icon(icon-plus, '&:before');
+  }
+  &-pluscircle {
+    @include icon.design--icon(icon-pluscircle, '&:before');
+  }
+  &-trash {
+    @include icon.design--icon(icon-trash, '&:before');
+  }
+  &-caretup {
+    @include icon.design--icon(icon-caretup, '&:before');
+  }
+  &-dotssix {
+    @include icon.design--icon(icon-dotssix, '&:before');
+  }
+  &-listbullets {
+    @include icon.design--icon(icon-listbullets, '&:before');
+  }
+
+}

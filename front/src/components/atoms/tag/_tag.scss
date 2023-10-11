@@ -1,0 +1,11 @@
+﻿@use '../../../styles/base/charte' as charte;
+
+.tag {
+  font-family: charte.$fontFamily;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline;
+  padding: 4px 12px;
+  border-radius: 8px;
+  background: charte.$primary-color-75;
+}

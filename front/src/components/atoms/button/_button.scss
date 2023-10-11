@@ -1,0 +1,39 @@
+﻿@use '../../../styles/base/charte' as charte;
+
+.button {
+  font-family: charte.$fontFamily;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &.button {
+    min-height: 32px;
+    padding: 4px 12px;
+    &-primary {
+      color: charte.$primary-color-25;
+      background: charte.$primary-color-500;
+    }
+    &-secondary {
+      background: charte.$primary-color-75;
+      color: charte.$primary-color-500;
+    }
+  }
+
+  &.button-secondary {
+    background: charte.$primary-color-75;
+  }
+
+  &.icon {
+    min-height: 40px;
+    min-width: 40px;
+    padding: 4px;
+
+    i:before {
+      font-size: 32px;
+    }
+  }
+
+}
