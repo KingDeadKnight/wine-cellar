@@ -1,14 +1,14 @@
-name: Front CI
+name: Back CI
 on:
   push:
     branches:
       - main
-    path:
+    paths:
       - 'back/**'
   pull_request:
     branches:
       - main
-    path:
+    paths:
       - 'back/**'
 
 concurrency:
