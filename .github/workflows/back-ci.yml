@@ -27,13 +27,13 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.x
-      - name: Cache Dependencies
+      - name: Cache NuGet
         uses: actions/cache@v3
         with:
-          path: |
-            ${{ github.workspace }}/front/.yarn
-            ${{ github.workspace }}/front/.next/cache
-          key: ${{ runner.os }}-deps-${{ hashFiles('**/front/yarn.lock') }}
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
       - name: Restore and build
         working-directory: ./back
         run: |
