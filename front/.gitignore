@@ -4,7 +4,8 @@
 /node_modules
 /.pnp
 .pnp.*
-.yarn
+.yarn/*
+!.yarn/releases
 
 # testing
 /coverage
@@ -40,3 +41,4 @@ next-env.d.ts
 /.pnp.cjs
 
 .idea
+dist
