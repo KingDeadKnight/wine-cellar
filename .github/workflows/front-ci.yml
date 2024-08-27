@@ -3,12 +3,12 @@ on:
   push:
     branches:
       - main
-    path:
+    paths:
       - 'front/**'
   pull_request:
     branches:
       - main
-    path:
+    paths:
       - 'front/**'
 
 concurrency:
